@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="君子堂 - 中国古典武侠文学与传统文化门户网站，提供武侠小说、古典诗词、历史典故、传统武术文化及国风艺术的深度阅读与交流。">
+    <meta name="keywords" content="君子堂,武侠小说,古典文学,国风,传统文化,诗词歌赋,传统武术">
+    <title>君子堂 - 深度武侠文学与国风文化殿堂</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8b3a3a; /* 宫墙红 */
+            --secondary-color: #1a1a1a; /* 墨色 */
+            --accent-color: #d4af37; /* 鎏金 */
+            --bg-color: #fdfbf7; /* 宣纸白 */
+            --text-color: #333333;
+            --light-text: #666666;
+            --border-radius: 4px;
+            --spacing-unit: 1.5rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "SimSun", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            font-family: "Songti SC", serif;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: #fff;
+            margin-left: 5px;
+            font-size: 1rem;
+            font-weight: normal;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.8);
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a:hover, nav a.active {
+            color: #fff;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-color: #fff;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/wuxia_bg/1920/600') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-family: "Songti SC", serif;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 35px;
+            border-radius: 2px;
+            font-size: 1.1rem;
+            border: 1px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #a64242;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 58, 58, 0.4);
+        }
+
+        /* 核心栏目 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            font-family: "Songti SC", serif;
+            display: inline-block;
+        }
+
+        .section-title h2::before, .section-title h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        .section-title h2::after {
+            margin-top: 5px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: #fff;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .category-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        /* 内容列表区 */
+        .content-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .main-column h3 {
+            font-size: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .article-item {
+            display: flex;
+            gap: 1.5rem;
+            background: #fff;
+            padding: 1.5rem;
+            border: 1px solid #f0f0f0;
+            transition: box-shadow 0.3s;
+        }
+
+        .article-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .article-thumb {
+            width: 180px;
+            height: 120px;
+            background-color: #ddd;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .article-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .article-item:hover .article-thumb img {
+            transform: scale(1.05);
+        }
+
+        .article-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-info h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .article-info .meta {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 0.8rem;
+        }
+
+        .article-info p {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 侧边栏 */
+        aside {
+            background: #fff;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-widget h4 {
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { color: #d63031; }
+        .rank-list li:nth-child(2) .rank-num { color: #e17055; }
+        .rank-list li:nth-child(3) .rank-num { color: #fdcb6e; }
+
+        .quote-box {
+            font-style: italic;
+            color: #666;
+            text-align: center;
+            padding: 1rem;
+            border-left: 3px solid var(--primary-color);
+            background: #fdfdfd;
+            margin-top: 1rem;
+        }
+
+        /* 文化长廊 */
+        .gallery-section {
+            background-color: #f4f4f4;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 1.5rem;
+            color: #fff;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* 互动与FAQ */
+        .interaction-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background-color: #fff;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s;
+            color: var(--light-text);
+            background-color: #fafafa;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1rem 1.5rem 1.5rem;
+            max-height: 200px;
+            border-top: 1px solid #eee;
+        }
+
+        .join-box {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 3rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+        }
+
+        .join-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .join-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 2rem;
+        }
+
+        .join-form input {
+            padding: 10px 15px;
+            border-radius: 2px;
+            border: none;
+            width: 250px;
+        }
+
+        .join-form button {
+            padding: 10px 25px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .join-form button:hover {
+            background-color: #a64242;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #111;
+            color: #888;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .interaction-section {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-item {
+                flex-direction: column;
+            }
+
+            .article-thumb {
+                width: 100%;
+                height: 200px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">君子堂 <span>中国古典武侠文化门户</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">武侠小说</a></li>
+                    <li><a href="#">古典诗词</a></li>
+                    <li><a href="#">国风艺术</a></li>
+                    <li><a href="#">历史典故</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn">搜索</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>侠骨柔情，文脉流芳</h1>
+                <p>君子堂致力于传承中国古典武侠精神，汇聚海量武侠小说、古典诗词与传统武术文化，为现代读者构建一方精神栖息地。</p>
+                <a href="#" class="cta-button">开始阅读</a>
+            </div>
+        </section>
+
+        <!-- 核心栏目 -->
+        <section class="container">
+            <div class="section-title">
+                <h2>文化殿堂</h2>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">⚔️</div>
+                    <h3>武侠小说</h3>
+                    <p>金古温黄及当代名家佳作</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📜</div>
+                    <h3>古典诗词</h3>
+                    <p>唐诗宋词元曲鉴赏</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🥋</div>
+                    <h3>传统武术</h3>
+                    <p>武学理论与实战技艺</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎭</div>
+                    <h3>国风艺术</h3>
+                    <p>书画、戏曲与民俗</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 内容列表 -->
+        <section class="container">
+            <div class="content-layout">
+                <div class="main-column">
+                    <h3>热门推荐</h3>
+                    <div class="article-list">
+                        <article class="article-item">
+                            <div class="article-thumb">
+                                <img src="https://picsum.photos/seed/wuxia1/300/200" alt="武侠小说封面">
+                            </div>
+                            <div class="article-info">
+                                <h4><a href="#">《江湖夜雨》读后感：在现代都市中寻找侠客梦</a></h4>
+                                <div class="meta">作者：墨客 · 分类：书评 · 2023-10-24</div>
+                                <p>在这个快节奏的时代，我们依然渴望那份“十步杀一人”的快意恩仇。本文将探讨古典武侠精神在当代生活中的投射与意义...</p>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </article>
+
+                        <article class="article-item">
+                            <div class="article-thumb">
+                                <img src="https://picsum.photos/seed/culture2/300/200" alt="书法艺术">
+                            </div>
+                            <div class="article-info">
+                                <h4><a href="#">书法中的“江湖气”：从狂草看文人的狂放与不羁</a></h4>
+                                <div class="meta">作者：文心 · 分类：艺术 · 2023-10-22</div>
+                                <p>狂草不仅仅是书写的艺术，更是文人内心世界的宣泄。分析张旭、怀素等书法大家的作品，解读其中蕴含的武侠豪情。</p>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </article>
+
+                        <article class="article-item">
+                            <div class="article-thumb">
+                                <img src="https://picsum.photos/seed/history3/300/200" alt="历史研究">
+                            </div>
+                            <div class="article-info">
+                                <h4><a href="#">武侠世界的历史原型：从宋代门客到明清镖局</a></h4>
+                                <div class="meta">作者：史官 · 分类：历史 · 2023-10-20</div>
+                                <p>武侠小说中的许多设定并非空穴来风，而是深深植根于中国历史。本文梳理了武侠文化背后的真实历史脉络。</p>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <aside>
+                    <div class="sidebar-widget">
+                        <h4>经典榜单</h4>
+                        <ul class="rank-list">
+                            <li><span class="rank-num">1</span><a href="#">金庸全集</a></li>
+                            <li><span class="rank-num">2</span><a href="#">古龙遗作</a></li>
+                            <li><span class="rank-num">3</span><a href="#">梁羽生精选</a></li>
+                            <li><span class="rank-num">4</span><a href="#">温瑞安武侠</a></li>
+                            <li><span class="rank-num">5</span><a href="#">当代新派武侠</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4>每日一诗</h4>
+                        <div class="quote-box">
+                            “十步杀一人，千里不留行。事了拂衣去，深藏身与名。”<br>
+                            <small>—— 李白《侠客行》</small>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4>关注我们</h4>
+                        <p style="font-size:0.9rem; color:#666; margin-bottom:10px;">加入君子堂读者群，与同好交流。</p>
+                        <div style="background:#eee; height:150px; display:flex; align-items:center; justify-content:center; color:#999; border-radius:4px;">
+                            二维码占位符
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 文化长廊 -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>国风雅集</h2>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/art1/600/450" alt="山水画">
+                        <div class="gallery-overlay">
+                            <h4>千里江山图赏析</h4>
+                            <p>青绿山水的巅峰之作</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/art2/600/450" alt="古琴">
+                        <div class="gallery-overlay">
+                            <h4>古琴曲《广陵散》</h4>
+                            <p>聂政刺韩王之音</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/art3/600/450" alt="武侠服饰">
+                        <div class="gallery-overlay">
+                            <h4>传统服饰复原</h4>
+                            <p>汉服与武侠角色的美学</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 互动与FAQ -->
+        <section class="container">
+            <div class="interaction-section">
+                <div>
+                    <div class="section-title">
+                        <h2>君子问策</h2>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">君子堂主要收录哪些类型的作品？</div>
+                        <div class="faq-answer">
+                            我们主要收录以中国古典武侠为题材的小说，同时涵盖古典诗词、传统武术理论、历史典故以及相关的国风艺术鉴赏内容。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何投稿自己的原创武侠小说？</div>
+                        <div class="faq-answer">
+                            请将作品以Word格式发送至投稿邮箱，并在邮件主题注明“君子堂投稿”。我们的编辑团队会在3个工作日内审核回复。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">网站内容是否支持转载？</div>
+                        <div class="faq-answer">
+                            部分经典古籍和公有领域内容可转载，但原创小说和深度评论文章请务必获得作者或君子堂授权，严禁未授权转载。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="join-box">
+                    <h3>加入君子堂</h3>
+                    <p style="margin-bottom: 1rem; opacity: 0.9;">注册成为会员，解锁专属阅读权限，参与线下雅集活动。</p>
+                    <form class="join-form" onsubmit="event.preventDefault(); alert('感谢您的关注，君子堂将尽快与您联系。');">
+                        <input type="text" placeholder="您的称呼" required>
+                        <button type="submit">提交</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>君子堂</h4>
+                    <p>传承中华武魂，弘扬国风文化。<br>打造最专业的武侠文学与传统文化交流平台。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>栏目导航</h4>
+                    <ul>
+                        <li><a href="#">武侠小说</a></li>
+                        <li><a href="#">古典诗词</a></li>
+                        <li><a href="#">历史研究</a></li>
+                        <li><a href="#">武术交流</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">网站简介</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">中国诗词网</a></li>
+                        <li><a href="#">中华武术协会</a></li>
+                        <li><a href="#">古风中文网</a></li>
+                        <li><a href="#">历史百科</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 君子堂版权所有. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                const isActive = parent.classList.contains('active');
+                
+                // 关闭所有其他的
+                document.querySelectorAll('.faq-item').forEach(child => {
+                    child.classList.remove('active');
+                });
+
+                // 切换当前
+                if (!isActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+                                              </html>
