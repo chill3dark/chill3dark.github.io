@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="骑士3.0 - 全球领先的企业级客户体验管理平台，提供全渠道数据融合、AI智能分析及自动化服务解决方案，助力企业实现客户体验数字化转型。">
+    <meta name="keywords" content="骑士3.0,客户体验,CX平台,客户管理,数据分析,服务自动化">
+    <title>骑士3.0 - 企业级客户体验管理平台与数字化转型解决方案</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --primary-dark: #004494;
+            --accent-color: #00d4ff;
+            --text-main: #1a1a1a;
+            --text-secondary: #666666;
+            --bg-body: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            height: auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--bg-white);
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-radius: 8px;
+            background: var(--bg-body);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: var(--border-color);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 86, 179, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            background-color: var(--bg-body);
+        }
+
+        .solution-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .solution-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .solution-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: rgba(0, 86, 179, 0.2);
+            line-height: 1;
+        }
+
+        .solution-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .solution-image img {
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        /* Comparison Table */
+        .comparison {
+            background-color: var(--bg-white);
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            margin-top: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .cross-icon::before {
+            content: '✕';
+            color: #999;
+            margin-right: 8px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--bg-body);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-section .btn {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .cta-section .btn:hover {
+            background-color: #f0f0f0;
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #999;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content, .solution-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2.25rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                骑士3.0<span>平台</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#features" class="nav-link">核心功能</a>
+                <a href="#solutions" class="nav-link">解决方案</a>
+                <a href="#comparison" class="nav-link">对比优势</a>
+                <a href="#faq" class="nav-link">常见问题</a>
+                <a href="#contact" class="nav-link">联系我们</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">免费试用</a>
+            </div>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">☰</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>重新定义客户体验，<br><span>骑士3.0</span> 由此开启</h1>
+                    <p>新一代企业级客户体验管理平台，融合全渠道数据与AI智能分析，帮助企业打破信息孤岛，提升服务效率与客户满意度。</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">立即预约演示</a>
+                        <a href="#features" class="btn btn-outline">了解更多</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- 使用 Picsum 作为占位图，种子确保一致性 -->
+                    <img src="https://picsum.photos/seed/knight3_hero/600/400" alt="骑士3.0平台界面展示">
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-bar">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>10,000+</h3>
+                    <p>服务企业客户</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>系统稳定性</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500ms</h3>
+                    <p>智能响应速度</p>
+                </div>
+                <div class="stat-item">
+                    <h3>40%</h3>
+                    <p>客户满意度提升</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section-padding features">
+            <div class="container">
+                <div class="text-center section-header">
+                    <h2>全方位能力，驱动业务增长</h2>
+                    <p>骑士3.0不仅仅是工具，更是您数字化转型的战略伙伴，提供从数据采集到智能决策的全链路支持。</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <h3>全渠道数据融合</h3>
+                        <p>统一管理网站、APP、社交媒体及线下渠道的客户数据，消除信息孤岛，构建360度客户画像。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 12 2.1 12"></path></svg>
+                        </div>
+                        <h3>AI 智能分析引擎</h3>
+                        <p>基于自然语言处理（NLP）技术，自动分析海量用户反馈，精准识别情感倾向与关键痛点。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <h3>自动化服务工单</h3>
+                        <p>智能路由与自动工单分配系统，大幅缩短响应时间，确保问题得到及时、专业的解决。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>实时可视化报表</h3>
+                        <p>拖拽式仪表盘设计，实时监控关键指标（CSAT, NPS, FRT），辅助管理层快速决策。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <h3>客户旅程地图</h3>
+                        <p>可视化梳理客户在产品全生命周期中的触点，精准定位体验断点与优化机会。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3>企业级安全保障</h3>
+                        <p>符合ISO 27001标准，采用金融级加密技术，确保企业核心数据与客户隐私绝对安全。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solutions" class="section-padding solution">
+            <div class="container solution-container">
+                <div class="solution-list">
+                    <div class="section-header" style="text-align: left;">
+                        <h2>行业解决方案</h2>
+                        <p>针对不同行业特性，骑士3.0提供定制化部署方案，助力各行业客户体验升级。</p>
+                    </div>
+                    <div class="solution-item">
+                        <div class="solution-number">01</div>
+                        <div class="solution-content">
+                            <h3>金融科技</h3>
+                            <p>处理高并发交易咨询，提升理财顾问响应效率，降低金融欺诈风险。</p>
+                        </div>
+                    </div>
+                    <div class="solution-item">
+                        <div class="solution-number">02</div>
+                        <div class="solution-content">
+                            <h3>电商零售</h3>
+                            <p>优化购物体验，智能处理退货退款，提升复购率与用户忠诚度。</p>
+                        </div>
+                    </div>
+                    <div class="solution-item">
+                        <div class="solution-number">03</div>
+                        <div class="solution-content">
+                            <h3>在线教育</h3>
+                            <p>集中管理学员反馈与教师评价，构建优质的教学服务闭环。</p>
+                        </div>
+                    </div>
+                    <div class="solution-item">
+                        <div class="solution-number">04</div>
+                        <div class="solution-content">
+                            <h3>政务服务</h3>
+                            <p>打通线上线下服务渠道，提升政务办事透明度与群众满意度。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-image">
+                    <img src="https://picsum.photos/seed/knight3_solution/600/500" alt="骑士3.0行业解决方案展示">
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="section-padding comparison">
+            <div class="container">
+                <div class="text-center section-header">
+                    <h2>为什么选择骑士3.0</h2>
+                    <p>对比传统客户管理方式，骑士3.0为您带来质的飞跃。</p>
+                </div>
+                <div class="comparison-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>功能特性</th>
+                                <th>传统CRM/客服系统</th>
+                                <th>骑士3.0</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>数据融合能力</td>
+                                <td><span class="cross-icon">各渠道数据割裂</span></td>
+                                <td><span class="check-icon">全渠道数据实时融合</span></td>
+                            </tr>
+                            <tr>
+                                <td>分析智能化</td>
+                                <td><span class="cross-icon">依赖人工统计报表</span></td>
+                                <td><span class="check-icon">AI自动生成洞察报告</span></td>
+                            </tr>
+                            <tr>
+                                <td>响应速度</td>
+                                <td><span class="cross-icon">平均响应时间较长</span></td>
+                                <td><span class="check-icon">毫秒级智能路由分发</span></td>
+                            </tr>
+                            <tr>
+                                <td>用户体验</td>
+                                <td><span class="cross-icon">操作繁琐，学习成本高</span></td>
+                                <td><span class="check-icon">极简设计，开箱即用</span></td>
+                            </tr>
+                            <tr>
+                                <td>安全性</td>
+                                <td><span class="cross-icon">基础数据加密</span></td>
+                                <td><span class="check-icon">金融级安全防护体系</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-padding faq">
+            <div class="container">
+                <div class="text-center section-header">
+                    <h2>常见问题解答</h2>
+                    <p>关于骑士3.0的部署、功能及定价的常见疑问。</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>骑士3.0支持私有化部署吗？</h3>
+                        <p>是的，骑士3.0提供SaaS云服务和私有化部署两种模式，企业可根据数据合规要求选择最适合的方案。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>系统上线需要多长时间？</h3>
+                        <p>标准版系统通常在签订合同后2-4周内完成配置与上线；定制化项目根据需求复杂度，周期通常在1-3个月。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>是否提供API接口？</h3>
+                        <p>完全支持。我们提供开放的RESTful API接口，可无缝对接企业现有的ERP、CRM及数据仓库系统。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>如何保障数据安全？</h3>
+                        <p>我们采用数据加密传输、访问控制审计、定期安全扫描以及数据本地化存储等多种手段全方位保障数据安全。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="cta-section">
+            <div class="container">
+                <h2>准备好提升客户体验了吗？</h2>
+                <p>立即联系我们的专家团队，获取专属的数字化体验提升方案。</p>
+                <a href="#" class="btn">预约免费演示</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>骑士3.0平台</h3>
+                    <p>致力于为企业提供最先进的客户体验管理工具，通过技术创新驱动业务增长，让每一次客户交互都充满价值。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品中心</h4>
+                    <ul>
+                        <li><a href="#">数据融合引擎</a></li>
+                        <li><a href="#">智能分析大脑</a></li>
+                        <li><a href="#">服务自动化</a></li>
+                        <li><a href="#">API 开放平台</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="#">金融行业方案</a></li>
+                        <li><a href="#">电商零售方案</a></li>
+                        <li><a href="#">政务公共服务</a></li>
+                        <li><a href="#">大型企业定制</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持与服务</h4>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">开发者文档</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 骑士3.0平台 版权所有 | 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
