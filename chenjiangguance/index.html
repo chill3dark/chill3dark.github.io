@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沉降观测记录 - 建筑物变形监测规范与实操指南</title>
+    <meta name="description" content="本站提供专业的沉降观测记录标准、数据采集规范、沉降曲线绘制方法及监测报告模板下载。适用于建筑施工、工程监理及土木工程技术人员参考。">
+    <meta name="keywords" content="沉降观测记录, 建筑沉降监测, 沉降观测规范, 变形监测, 工程测量记录">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-light: #f8f9fa;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d35400;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        /* Standards Grid */
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .card h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #ecf0f1;
+            color: var(--primary-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Process Steps */
+        .process-section {
+            background-color: var(--bg-light);
+            padding: 3rem 0;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .step-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Data Table */
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #fafafa;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-color);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        details p {
+            margin-top: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+
+            .header-inner {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>◆</span> 建工监测记录
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#standards">监测规范</a></li>
+                    <li><a href="#process">操作流程</a></li>
+                    <li><a href="#data">记录模板</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>沉降观测记录</h1>
+            <p>严格遵循国家测量规范，提供从基准点布设到监测报告生成的全流程数据记录指导与标准模板。</p>
+            <a href="#standards" class="cta-button">查看标准规范</a>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- Standards Section -->
+        <section id="standards">
+            <h2 class="section-title">核心监测规范</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-secondary);">沉降观测是建筑工程质量控制的关键环节，必须依据现行国家标准执行。</p>
+            
+            <div class="standards-grid">
+                <article class="card">
+                    <h3>GB 50026-2020 工程测量标准</h3>
+                    <p>规定了工程测量中控制测量、地形测量、施工测量、变形监测的基本原则、方法和技术要求。</p>
+                    <span class="tag">强制性国家标准</span>
+                </article>
+
+                <article class="card">
+                    <h3>JGJ 8-2016 建筑变形测量规范</h3>
+                    <p>专门针对建筑物沉降、位移、倾斜等变形测量的技术规程，详细规定了仪器精度等级与观测周期。</p>
+                    <span class="tag">行业标准</span>
+                </article>
+
+                <article class="card">
+                    <h3>建筑地基基础设计规范 (GB 50007)</h3>
+                    <p>涉及建筑物地基基础设计的基本原则，规定了地基变形允许值及沉降观测的必要性。</p>
+                    <span class="tag">设计依据</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process-section">
+            <div class="container">
+                <h2 class="section-title">观测流程与步骤</h2>
+                <div class="process-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h4>基准点布设</h4>
+                        <p>在不受施工影响且地质稳固的区域埋设基准点，建立高精度的水准控制网。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h4>观测点埋设</h4>
+                        <p>在建筑物的四角、大转角、沿外墙每10-15米或每隔2-3根柱基上埋设沉降观测点。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h4>初始观测</h4>
+                        <p>在建筑物主体结构封顶前进行不少于两次的初始观测，取平均值作为基准数据。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <h4>周期性观测</h4>
+                        <p>施工期间根据荷载变化定期观测，竣工后按规范要求定期复测。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Table Section -->
+        <section id="data">
+            <h2 class="section-title">观测记录数据表</h2>
+            <p style="margin-bottom: 1rem; color: var(--text-secondary);">以下为典型建筑物沉降观测记录表头结构，实际应用中需包含具体日期、时间、仪器型号及闭合差。</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>工程名称</th>
+                            <th>观测点编号</th>
+                            <th>观测日期</th>
+                            <th>观测时间</th>
+                            <th>水准仪型号</th>
+                            <th>观测者</th>
+                            <th>闭合差</th>
+                            <th>本次沉降量</th>
+                            <th>累计沉降量</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>XX市商业中心一期</td>
+                            <td>BM-01</td>
+                            <td>2023-10-15</td>
+                            <td>08:30</td>
+                            <td>DSZ3</td>
+                            <td>张三</td>
+                            <td>±1.2mm</td>
+                            <td>0.00</td>
+                            <td>0.00</td>
+                            <td>基准点</td>
+                        </tr>
+                        <tr>
+                            <td>XX市商业中心一期</td>
+                            <td>S-01</td>
+                            <td>2023-10-15</td>
+                            <td>09:15</td>
+                            <td>DSZ3</td>
+                            <td>李四</td>
+                            <td>±1.5mm</td>
+                            <td>+2.5mm</td>
+                            <td>+12.5mm</td>
+                            <td>主体二层</td>
+                        </tr>
+                        <tr>
+                            <td>XX市商业中心一期</td>
+                            <td>S-02</td>
+                            <td>2023-10-15</td>
+                            <td>09:45</td>
+                            <td>DSZ3</td>
+                            <td>王五</td>
+                            <td>±1.0mm</td>
+                            <td>+1.8mm</td>
+                            <td>+8.2mm</td>
+                            <td>主体二层</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="background-color: #fff3cd; color: #856404; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; font-size: 0.9rem;">
+                <strong>注意：</strong> 闭合差必须小于规范允许值（如二等水准测量为±4√L mm），否则需重测。
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <h2 class="section-title">常见问题解答</h2>
+            
+            <details>
+                <summary>沉降观测需要多少次？</summary>
+                <p>施工期间：一般每施工一层观测一次。当基础附近地面荷载突然增加、周围大量挖土或停工复工时，应增加观测次数。竣工后：第一年观测3-4次，第二年2-3次，第三年后每年1次，直至稳定。</p>
+            </details>
+
+            <details>
+                <summary>观测精度如何确定？</summary>
+                <p>通常根据建筑物的重要性、地质条件及变形速率确定等级。一般高层建筑、重要工业厂房采用二等或三等水准测量，精度要求达到±1mm以内。</p>
+            </details>
+
+            <details>
+                <summary>沉降观测点损坏如何处理？</summary>
+                <p>应立即补埋新点，新点的位置应尽量与原点接近，且埋设深度应一致。记录表中需注明“补测点”，并在报告中说明情况。</p>
+            </details>
+            
+            <details>
+                <summary>什么情况下判定为沉降稳定？</summary>
+                <p>根据规范，最后100天内沉降速度小于0.01~0.04mm/d，或沉降速率在逐渐减小，可视为稳定。</p>
+            </details>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 建工监测记录服务平台. 仅供参考，不作为正式法律依据。</p>
+            <p>关注工程质量安全，规范沉降观测流程。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
