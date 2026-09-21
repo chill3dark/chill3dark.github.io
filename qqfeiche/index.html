@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QQ飞车雷诺是游戏中的A级赛车，拥有霸气的赛车外观和优秀的直线速度。本站提供雷诺的属性解析、获取方式、改装推荐及实战技巧，助你成为赛道王者。">
+    <meta name="keywords" content="qq飞车雷诺,A级赛车,雷诺改装,QQ飞车攻略,雷诺获取">
+    <title>QQ飞车雷诺-赛车属性解析、获取方式与改装指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4d4d;
+            --secondary-color: #1a1a1a;
+            --accent-color: #ffd700;
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(30, 30, 30, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-gray);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #2c0e0e 0%, #000000 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 77, 77, 0.1) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s, background-color 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background-color: #ff6666;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--text-light);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: normal;
+        }
+
+        /* Data Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background-color: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            nav {
+                display: none;
+            }
+        }
+
+        /* Article Cards */
+        .article-card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
+        }
+
+        @media (min-width: 768px) {
+            .article-card {
+                flex-direction: row;
+                height: 200px;
+            }
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #333;
+        }
+
+        @media (min-width: 768px) {
+            .article-image {
+                width: 40%;
+                height: 100%;
+            }
+        }
+
+        .article-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .article-tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .article-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.2s;
+        }
+
+        .read-more:hover::after {
+            margin-left: 10px;
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background-color: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #333;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        .guide-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-list a {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .guide-list .guide-desc {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .comparison-table th, .comparison-table td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #333;
+        }
+
+        .comparison-table th {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            color: var(--text-gray);
+        }
+
+        /* FAQ */
+        .faq-item {
+            background-color: var(--bg-card);
+            margin-bottom: 10px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #252525;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-gray);
+            font-size: 14px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Utility */
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">Q <span>Speed</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">赛车图鉴</a></li>
+                    <li><a href="#">改装攻略</a></li>
+                    <li><a href="#">赛道百科</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>雷诺：硬汉的极致速度</h1>
+                <p>QQ飞车A级赛车，以重型装甲与狂暴引擎著称。在直线加速中势不可挡，是竞速赛中的绝对王者。</p>
+                <div>
+                    <a href="#stats" class="btn">查看属性</a>
+                    <a href="#guide" class="btn btn-outline">获取方式</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats" class="container">
+            <div class="section-title">
+                <h2>核心属性数据</h2>
+                <span>基于游戏最新版本</span>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">6.25</div>
+                    <div class="stat-label">直线最高速度</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2.41</div>
+                    <div class="stat-label">最小转弯半径</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">+6.1%</div>
+                    <div class="stat-label">集气效率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">8.02</div>
+                    <div class="stat-label">重量</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <section class="container">
+            <div class="content-grid">
+                <!-- Left Column: Articles -->
+                <div class="main-column">
+                    <div class="section-title">
+                        <h2>雷诺专题攻略</h2>
+                        <span>深度解析与实战技巧</span>
+                    </div>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/raynor1/400/300" alt="雷诺改装示意图" class="article-image">
+                        <div class="article-content">
+                            <div class="article-tag">改装指南</div>
+                            <h3 class="article-title">雷诺改装方案推荐：如何最大化直线性能？</h3>
+                            <p class="article-excerpt">雷诺的核心优势在于直线速度，建议优先升级引擎系统，并利用集气机制弥补弯道不足。</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/raynor2/400/300" alt="雷诺赛道表现" class="article-image">
+                        <div class="article-content">
+                            <div class="article-tag">实战技巧</div>
+                            <h3 class="article-title">雷诺在竞速赛中的运用策略</h3>
+                            <p class="article-excerpt">面对高难度赛道，利用雷诺的防撞特性进行贴图漂移，可以有效减少碰撞惩罚。</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/raynor3/400/300" alt="雷诺与其他赛车对比" class="article-image">
+                        <div class="article-content">
+                            <div class="article-tag">图鉴对比</div>
+                            <h3 class="article-title">雷诺 VS 黑色闪电：谁才是直线之王？</h3>
+                            <p class="article-excerpt">通过详细数据对比，分析两辆赛车在不同场景下的优劣，帮助你做出选择。</p>
+                            <a href="#" class="read-more">阅读全文</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Right Column: Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">获取方式</h3>
+                        <ul class="guide-list">
+                            <li>
+                                <a href="#">夺宝商城</a>
+                                <span class="guide-desc">开启高级夺宝有机会获得</span>
+                            </li>
+                            <li>
+                                <a href="#">赛季通行证</a>
+                                <span class="guide-desc">S3赛季奖励包含雷诺碎片</span>
+                            </li>
+                            <li>
+                                <a href="#">活动兑换</a>
+                                <span class="guide-desc">特定节日活动积分兑换</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">常见问题 (FAQ)</h3>
+                        <div class="faq-item">
+                            <div class="faq-question">雷诺是几级赛车？</div>
+                            <div class="faq-answer">雷诺是QQ飞车中的A级赛车，需要达到一定的等级（通常为40级或以上）才能使用。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">雷诺适合新手吗？</div>
+                            <div class="faq-answer">雷诺操作相对简单，不需要复杂的微操，非常适合喜欢直线竞速的新手玩家。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">如何获得雷诺的涂装？</div>
+                            <div class="faq-answer">可以通过购买赛车礼包、参与特定活动或使用点券购买专属涂装。</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="container">
+            <div class="section-title">
+                <h2>性能对比</h2>
+                <span>雷诺 vs 其他热门A级赛车</span>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>属性</th>
+                            <th>雷诺</th>
+                            <th>暗夜骑士</th>
+                            <th>雷诺（黑炎）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>直线最高速度</td>
+                            <td>6.25</td>
+                            <td>6.15</td>
+                            <td>6.26</td>
+                        </tr>
+                        <tr>
+                            <td>小喷动力</td>
+                            <td>0.76</td>
+                            <td>0.77</td>
+                            <td>0.76</td>
+                        </tr>
+                        <tr>
+                            <td>集气效率</td>
+                            <td>+6.1%</td>
+                            <td>+5.8%</td>
+                            <td>+6.2%</td>
+                        </tr>
+                        <tr>
+                            <td>重量</td>
+                            <td>8.02</td>
+                            <td>8.05</td>
+                            <td>8.02</td>
+                        </tr>
+                        <tr>
+                            <td>特性</td>
+                            <td>直线最高速度+0.3，起步小喷最高速度+0.4</td>
+                            <td>起步小喷最高速度+0.5</td>
+                            <td>直线最高速度+0.3，起步小喷最高速度+0.4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 QQ飞车雷诺攻略站. 本站为非官方网站，内容仅供玩家参考。</p>
+            <p style="margin-top: 10px; font-size: 12px; color: #555;">QQ飞车是腾讯游戏旗下的产品，本站与腾讯公司无直接关联。</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
