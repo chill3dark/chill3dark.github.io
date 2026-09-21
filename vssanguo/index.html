@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VS三国吧 - 深度解析三国时期名将、战役与谋略。提供详细的人物对比、历史资料、战术分析及趣味问答，带您领略魏蜀吴三国的风云变幻。">
+    <meta name="keywords" content="vs三国吧,三国历史,三国名将,三国战役,魏蜀吴,三国谋略,历史对比">
+    <title>VS三国吧-三国人物与战役深度解析指南</title>
+    <style>
+        :root {
+            --primary-color: #8b0000; /* 殷红 - 蜀汉/热血 */
+            --secondary-color: #2c3e50; /* 墨黑 - 历史厚重感 */
+            --accent-color: #c0392b; /* 朱红 - 强调 */
+            --bg-color: #f9f7f2; /* 宣纸白 */
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --font-serif: "Songti SC", "SimSun", "Times New Roman", serif;
+            --font-sans: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部 */
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/sanguo/1920/600') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* 核心栏目导航 */
+        .section-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .section-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .section-btn.active, .section-btn:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* VS 对比卡片区域 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .vs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .vs-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .vs-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vs-header {
+            padding: 20px;
+            background: #f4f4f4;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vs-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .vs-badge {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .vs-body {
+            padding: 25px;
+        }
+
+        .vs-compare-row {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 15px;
+        }
+
+        .vs-compare-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .vs-label {
+            width: 80px;
+            font-weight: bold;
+            color: var(--text-light);
+            flex-shrink: 0;
+        }
+
+        .vs-value {
+            color: var(--text-main);
+            flex-grow: 1;
+        }
+
+        /* 战役时间轴 */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ccc;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* 问答与结语 */
+        .faq-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            padding-left: 10px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: #888;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .vs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">VS<span>三国吧</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#compare">名将对决</a></li>
+                    <li><a href="#battles">经典战役</a></li>
+                    <li><a href="#strategy">谋略分析</a></li>
+                    <li><a href="#faq">常见问答</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>VS三国吧</h1>
+                <p>深度解析魏蜀吴三国的风云变幻，还原真实历史，剖析名将战力与经典战役背后的谋略智慧。</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- 分类导航 -->
+            <nav class="section-nav">
+                <button class="section-btn active">综合对比</button>
+                <button class="section-btn">单挑推演</button>
+                <button class="section-btn">阵营优劣</button>
+                <button class="section-btn">装备解析</button>
+            </nav>
+
+            <!-- VS 对比展示 -->
+            <section id="compare" class="vs-grid">
+                <!-- 卡片 1 -->
+                <article class="vs-card">
+                    <div class="vs-header">
+                        <span class="vs-title">五虎上将：赵云 VS 马超</span>
+                        <span class="vs-badge">武力值对比</span>
+                    </div>
+                    <div class="vs-body">
+                        <div class="vs-compare-row">
+                            <span class="vs-label">综合评价</span>
+                            <span class="vs-value">赵云以稳健著称，马超以勇猛见长，两人武力值在伯仲之间。</span>
+                        </div>
+                        <div class="vs-compare-row">
+                            <span class="vs-label">战绩表现</span>
+                            <span class="vs-value">赵云长坂坡七进七出，汉水救黄忠；马超潼关杀得曹操割须弃袍，威震羌胡。</span>
+                        </div>
+                        <div class="vs-compare-row">
+                            <span class="vs-label">战术风格</span>
+                            <span class="vs-value">赵云更擅长防守反击与游击战；马超冲锋陷阵，气势逼人。</span>
+                        </div>
+                        <div class="vs-compare-row">
+                            <span class="vs-label">胜率推测</span>
+                            <span class="vs-value">持久战赵云略占优势，速决战马超更有爆发力。</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 2 -->
+                <article class="vs-card">
+                    <div class="vs-header">
+                        <span class="vs-title">魏国：曹操 VS 孙权</span>
+                        <span class="vs-badge">统帅能力</span>
+                    </div>
+                    <div class="vs-body">
+                        <div class="vs-compare-row">
+                            <span class="vs-label">个人能力</span>
+                            <span class="vs-value">曹操文武双全，军事才能顶尖；孙权承父兄基业，善于守成与平衡。</span>
+                        </div>
+                        <div class="vs-compare-row">
+                            <span class="vs-label">用人之道</span>
+                            <span class="vs-value">曹操唯才是举，多疑但能容人；孙权知人善任，信任旧臣。</span>
+                        </div>
+                        <div class="vs-compare-row">
+                            <span class="vs-label">决策风格</span>
+                            <span class="vs-value">曹操多主动出击，冒险精神强；孙权多权衡利弊，偏重防守。</span>
+                        </div>
+                        <div class="vs-compare-row">
+                            <span class="vs-label">历史地位</span>
+                            <span class="vs-value">曹操奠定北方霸业，孙权奠定江东基业，均为一代枭雄。</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 卡片 3 -->
+                <article class="vs-card">
+                    <div class="vs-header">
+                        <span class="vs-title">蜀汉：诸葛亮 VS 姜维</span>
+                        <span class="vs-badge">治国与北伐</span>
+                    </div>
+                    <div class="vs-body">
+                        <div class="vs-compare-row">
+                            <span class="vs-label">治国理念</span>
+                            <span class="vs-value">诸葛亮崇尚法治，赏罚分明；姜维继承北伐遗志，激进且坚韧。</span>
+                        </div>
+                        <div class="vs-compare-row">
+                            <span class="vs-label">军事策略</span>
+                            <span class="vs-value">诸葛亮以攻代守，步步为营；姜维多用奇兵，意图出奇制胜。</span>
+                        </div>
+                        <div class="vs-compare-row">
+                            <span class="vs-label">后期影响</span>
+                            <span class="vs-value">诸葛亮鞠躬尽瘁，奠定蜀汉法度；姜维九伐中原，耗尽蜀国国力。</span>
+                        </div>
+                        <div class="vs-compare-row">
+                            <span class="vs-label">能力侧重</span>
+                            <span class="vs-value">诸葛亮治国治军皆精；姜维更侧重军事统帅与战术执行。</span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- 经典战役时间轴 -->
+            <section id="battles">
+                <h2 class="section-title">三国经典战役时间轴</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">公元208年</span>
+                        <div class="timeline-content">
+                            <h3>赤壁之战</h3>
+                            <p>孙刘联军以火攻大破曹操八十万大军，奠定了三国鼎立的基础，是三国时期最著名的以少胜多战役。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">公元228年</span>
+                        <div class="timeline-content">
+                            <h3>街亭之战</h3>
+                            <p>马谡违背诸葛亮部署，失守街亭，导致北伐失败。此战深刻影响了蜀汉后期的战略走向。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">公元222年</span>
+                        <div class="timeline-content">
+                            <h3>夷陵之战</h3>
+                            <p>刘备为报关羽之仇发动伐吴，被陆逊火烧连营七百里，蜀汉元气大伤，从此无力统一全国。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">公元263年</span>
+                        <div class="timeline-content">
+                            <h3>邓艾灭蜀</h3>
+                            <p>魏国大将邓艾偷渡阴平，直插成都，刘禅投降，蜀汉政权正式灭亡。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 常见问题 FAQ -->
+            <section id="faq" class="faq-section">
+                <h2 class="section-title">VS三国吧 常见问题</h2>
+                <div class="faq-item">
+                    <div class="faq-question">vs三国吧中的数据来源主要是哪里？</div>
+                    <div class="faq-answer">我们主要依据《三国志》及裴松之注引的历史记载进行整理，同时结合《三国演义》中的文学描写进行对比分析，力求还原历史与演义的区别。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">为什么有些名将的对比结果会有争议？</div>
+                    <div class="faq-answer">由于史料记载详略不一，且不同历史学家对同一事件有不同解读，加之演义与正史的差异，人物评价往往存在主观性，我们提供的是基于现有资料的客观分析。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">三国时期哪场战役对历史走向影响最大？</div>
+                    <div class="faq-answer">赤壁之战被公认为三国历史的转折点，直接导致了曹操统一天下的计划失败，形成了三足鼎立的局面。</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 VS三国吧 - 历史爱好者社区</p>
+            <p>本站内容仅供学习交流，不代表任何官方立场。</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
