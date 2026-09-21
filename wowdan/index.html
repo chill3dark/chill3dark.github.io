@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="wow单机版 - 欢迎来到魔兽世界私服资源中心。提供怀旧服、微缩服、3.3.5版本及7.0版本的单机地图下载、插件安装教程及游戏攻略。">
+    <meta name="keywords" content="wow单机版,魔兽世界私服,魔兽世界怀旧服,魔兽世界3.35,魔兽世界单机地图">
+    <title>wow单机版 - 魔兽世界怀旧服与单机地图下载中心</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0078d7;
+            --primary-hover: #106ebe;
+            --accent-color: #f0ab00;
+            --bg-dark: #1a1a1a;
+            --bg-card: #2d2d2d;
+            --text-main: #ffffff;
+            --text-secondary: #cccccc;
+            --border-color: #444444;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--bg-card);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            padding: 8px 12px;
+            color: white;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 0 12px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/seed/wowhero/1920/600.jpg') center/cover no-repeat;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Main Content Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                gap: 10px;
+                font-size: 0.9rem;
+            }
+            .search-box {
+                width: 100%;
+            }
+            .search-box input {
+                width: 100%;
+            }
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 1.4rem;
+        }
+
+        .section-header a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Version Cards */
+        .version-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--border-color);
+        }
+
+        .card-img {
+            height: 160px;
+            background-color: #000;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #3d3d3d;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .install-guide {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .install-guide ol {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .install-guide li {
+            margin-bottom: 8px;
+        }
+
+        .install-guide code {
+            background: #000;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: var(--accent-color);
+        }
+
+        /* Tags */
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #3d3d3d;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--bg-card);
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            display: none;
+            padding-left: 10px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <span>WOW</span>单机版资源网
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">版本下载</a></li>
+                <li><a href="#">插件库</a></li>
+                <li><a href="#">新手指南</a></li>
+                <li><a href="#">论坛交流</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索版本或插件...">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>重温经典魔兽世界</h1>
+            <p>无需排队，无需租号。提供最稳定、最全的魔兽世界单机版（私服/微缩服）地图下载与安装教程。支持3.3.5、6.2、7.0等多个经典版本。</p>
+            <div class="hero-btns">
+                <a href="#downloads" class="btn btn-primary">立即下载客户端</a>
+                <a href="#guide" class="btn btn-outline">查看安装教程</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="main-layout">
+            <!-- Main Content -->
+            <div class="content-area">
+                
+                <!-- Latest Versions -->
+                <section id="downloads">
+                    <div class="section-header">
+                        <h2>热门版本下载</h2>
+                        <a href="#">查看更多 &rarr;</a>
+                    </div>
+                    <div class="version-grid">
+                        <!-- Card 1 -->
+                        <article class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/seed/wow35/400/250.jpg" alt="魔兽世界3.35版本">
+                                <span class="card-badge">经典</span>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">魔兽世界 3.3.5a 燃烧的远征</h3>
+                                <p class="card-desc">基于原版WotLK版本，包含纳克萨玛斯、冰冠堡垒等所有团本，支持装备互通，完美复刻经典60级体验。</p>
+                                <div class="card-meta">
+                                    <span>更新: 2023-10-15</span>
+                                    <span>热度: 98%</span>
+                                </div>
+                                <a href="#" class="download-btn">下载客户端 (5.2GB)</a>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/seed/wow62/400/250.jpg" alt="魔兽世界6.2版本">
+                                <span class="card-badge">推荐</span>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">魔兽世界 6.2 军团再临</h3>
+                                <p class="card-desc">体验德拉诺之王后续内容，包含阿古斯之战、破碎海滩等PVP/PVE内容，新增飞行系统。</p>
+                                <div class="card-meta">
+                                    <span>更新: 2023-11-02</span>
+                                    <span>热度: 92%</span>
+                                </div>
+                                <a href="#" class="download-btn">下载客户端 (4.8GB)</a>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/seed/wow70/400/250.jpg" alt="魔兽世界7.0版本">
+                                <span class="card-badge">最新</span>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">魔兽世界 7.0 军团降临</h3>
+                                <p class="card-desc">全新职业大厅系统，神器系统，开启破碎群岛冒险，体验全新的地下城与团本机制。</p>
+                                <div class="card-meta">
+                                    <span>更新: 2023-12-20</span>
+                                    <span>热度: 85%</span>
+                                </div>
+                                <a href="#" class="download-btn">下载客户端 (6.1GB)</a>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/seed/wowmini/400/250.jpg" alt="微缩服">
+                                <span class="card-badge">微缩服</span>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">魔兽世界微缩服 (2D/3D)</h3>
+                                <p class="card-desc">地图大幅缩小，升级极快，适合喜欢快速体验剧情和打怪的玩家。支持自定义地图。</p>
+                                <div class="card-meta">
+                                    <span>更新: 2023-09-01</span>
+                                    <span>热度: 88%</span>
+                                </div>
+                                <a href="#" class="download-btn">下载客户端 (1.2GB)</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Game Guides -->
+                <section style="margin-top: 50px;">
+                    <div class="section-header">
+                        <h2>游戏攻略与教程</h2>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <article class="card" style="padding: 20px;">
+                            <h3 style="margin-bottom: 10px;">如何安装魔兽世界私服客户端？</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">
+                                下载客户端后，解压到任意非中文路径。双击运行“Setup.exe”进行安装。安装完成后，使用启动器连接服务器IP...
+                            </p>
+                            <a href="#" style="color: var(--primary-color); font-size: 0.9rem; font-weight: 600;">阅读全文</a>
+                        </article>
+                        <article class="card" style="padding: 20px;">
+                            <h3 style="margin-bottom: 10px;">常用插件推荐：DBM与BigWigs</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">
+                                在团本开荒中，优秀的插件能极大提高生存率。DBM可以提示BOSS技能，BigWigs则提供更直观的团队协调...
+                            </p>
+                            <a href="#" style="color: var(--primary-color); font-size: 0.9rem; font-weight: 600;">阅读全文</a>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- FAQ -->
+                <section id="guide" class="faq-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <h2>常见问题 (FAQ)</h2>
+                        </div>
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <div class="faq-question">下载速度慢怎么办？</div>
+                                <div class="faq-answer">
+                                    <p>服务器带宽有限，建议使用迅雷或IDM下载。如果下载中断，请检查网络连接后重新下载。</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">安装后无法连接服务器？</div>
+                                <div class="faq-answer">
+                                    <p>请检查是否关闭了防火墙或杀毒软件拦截。确认服务器地址是否正确，部分服务器需要开启“允许局域网连接”。</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">支持哪些语言？</div>
+                                <div class="faq-answer">
+                                    <p>本站提供的版本主要支持简体中文。部分老版本或特殊版本可能仅支持英文或繁体中文。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">新手必读</h4>
+                    <div class="install-guide">
+                        <ol>
+                            <li><strong>下载</strong>：选择适合你的版本并下载。</li>
+                            <li><strong>安装</strong>：解压并运行安装程序，路径不要有中文。</li>
+                            <li><strong>启动</strong>：双击游戏图标，输入账号密码登录。</li>
+                            <li><strong>选择</strong>：在角色创建界面选择服务器并创建角色。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">热门标签</h4>
+                    <div class="tags-cloud">
+                        <a href="#" class="tag">单机地图</a>
+                        <a href="#" class="tag">怀旧服</a>
+                        <a href="#" class="tag">插件下载</a>
+                        <a href="#" class="tag">多开器</a>
+                        <a href="#" class="tag">微缩服</a>
+                        <a href="#" class="tag">团本攻略</a>
+                        <a href="#" class="tag">装备兑换</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4 class="widget-title">友情链接</h4>
+                    <ul style="list-style: none; color: var(--text-secondary); font-size: 0.9rem;">
+                        <li style="margin-bottom: 8px;"><a href="#">NGA玩家社区</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#">魔兽世界官方</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#">游侠网单机</a></li>
+                        <li style="margin-bottom: 8px;"><a href="#">3DM游戏网</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">免责声明</a>
+            <a href="#">用户协议</a>
+            <a href="#">联系方式</a>
+        </div>
+        <p>本站资源仅供学习交流使用，请勿用于商业用途。所有资源版权归原作者所有。</p>
+        <p class="copyright">Copyright &copy; 2023 WOW单机版资源网. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // 简单的FAQ折叠逻辑
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', function() {
+                // 关闭其他已打开的项
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // 切换当前项
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
