@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uoco福利库-精选福利资源与福利库指南</title>
+    <meta name="description" content="uoco福利库致力于提供优质、精选的福利资源聚合与福利库使用指南。包含分类导航、最新资源更新、福利库玩法攻略及常见问题解答，帮助用户高效获取所需福利内容。">
+    <meta name="keywords" content="uoco福利库,福利资源,福利库,福利攻略,福利推荐">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --primary-hover: #ff6b81;
+            --secondary-color: #2f3542;
+            --bg-color: #f1f2f6;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-sub: #747d8c;
+            --border-radius: 12px;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 16px rgba(0,0,0,0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #57606f;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.6);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--secondary-color);
+        }
+
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 240px 1fr 280px;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Sidebar Left */
+        .sidebar-left .category-list li {
+            margin-bottom: 10px;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: var(--text-sub);
+            font-weight: 500;
+        }
+
+        .category-list a:hover, .category-list a.active {
+            background: var(--card-bg);
+            color: var(--primary-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .category-list a span.count {
+            background: #f1f2f6;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* Content Area */
+        .content-area {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f1f2f6;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 22px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-card {
+            border: 1px solid #f1f2f6;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255, 71, 87, 0.2);
+        }
+
+        .card-thumb {
+            height: 140px;
+            background: #dfe4ea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .resource-card:hover .card-thumb img {
+            transform: scale(1.05);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .card-body {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            margin-bottom: 15px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #a4b0be;
+            margin-top: auto;
+        }
+
+        .card-meta .icon {
+            margin-right: 4px;
+        }
+
+        /* Sidebar Right */
+        .sidebar-right .widget {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f1f2f6;
+            color: var(--secondary-color);
+        }
+
+        .rank-list li {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+
+        .rank-num {
+            width: 20px;
+            height: 20px;
+            background: #f1f2f6;
+            color: var(--text-sub);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .rank-list li:nth-child(-n+3) .rank-num {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .rank-info a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .rank-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .rank-info .meta {
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-top: 2px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #f1f2f6;
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            color: var(--text-sub);
+            font-size: 15px;
+            line-height: 1.8;
+            display: none;
+            padding-top: 10px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: #a4b0be;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-grid {
+                grid-template-columns: 200px 1fr;
+            }
+            .sidebar-right {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                height: auto;
+                flex-direction: column;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-left {
+                display: none;
+            }
+            .content-area {
+                padding: 20px;
+            }
+            .resource-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">uoco<span>福利库</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">分类浏览</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">福利攻略</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">加入社区</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>发现更多精彩福利内容</h1>
+                <p>uoco福利库为您精选全网优质福利资源，提供安全、便捷的浏览与获取体验。无论是热门推荐还是冷门佳作，这里应有尽有。</p>
+                <div class="hero-tags">
+                    <span class="tag">每日更新</span>
+                    <span class="tag">高清画质</span>
+                    <span class="tag">独家资源</span>
+                    <span class="tag">社区共享</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="container main-grid">
+            <!-- Sidebar Left -->
+            <aside class="sidebar-left">
+                <ul class="category-list">
+                    <li><a href="#" class="active"><span>全部资源</span> <span class="count">128</span></a></li>
+                    <li><a href="#"><span>热门推荐</span> <span class="count">45</span></a></li>
+                    <li><a href="#"><span>最新发布</span> <span class="count">32</span></a></li>
+                    <li><a href="#"><span>精选合集</span> <span class="count">18</span></a></li>
+                    <li><a href="#"><span>独家福利</span> <span class="count">12</span></a></li>
+                    <li><a href="#"><span>热门话题</span> <span class="count">89</span></a></li>
+                    <li><a href="#"><span>历史存档</span> <span class="count">210</span></a></li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <section class="content-area">
+                <div class="section-header">
+                    <h2 class="section-title">热门资源推荐</h2>
+                    <a href="#" style="font-size: 14px; color: var(--primary-color); font-weight: 500;">查看更多 &rarr;</a>
+                </div>
+
+                <div class="resource-grid">
+                    <!-- Card 1 -->
+                    <article class="resource-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/uoco1/400/300" alt="资源封面">
+                            <span class="card-badge">热榜</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#">2024年度精选合集 - 高清画质版</a></h3>
+                            <p class="card-desc">包含本年度最受欢迎的福利资源，整理清晰，画质细腻，适合收藏。</p>
+                            <div class="card-meta">
+                                <span><i class="icon">👁</i> 12.5k</span>
+                                <span><i class="icon">⬇</i> 3.2k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="resource-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/uoco2/400/300" alt="资源封面">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#">独家福利：会员专享内容库</a></h3>
+                            <p class="card-desc">加入会员即可解锁更多独家资源，享受优先下载和高清无水印服务。</p>
+                            <div class="card-meta">
+                                <span><i class="icon">👁</i> 8.9k</span>
+                                <span><i class="icon">⬇</i> 1.1k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="resource-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/uoco3/400/300" alt="资源封面">
+                            <span class="card-badge">NEW</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#">每日更新：最新资源推送</a></h3>
+                            <p class="card-desc">每天早晨准时更新最新内容，保持资源库的时效性和新鲜感。</p>
+                            <div class="card-meta">
+                                <span><i class="icon">👁</i> 5.4k</span>
+                                <span><i class="icon">⬇</i> 890</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="resource-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/uoco4/400/300" alt="资源封面">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="#">分类专区：动漫与插画</a></h3>
+                            <p class="card-desc">汇集各类高质量动漫作品及精美插画，满足不同用户的审美需求。</p>
+                            <div class="card-meta">
+                                <span><i class="icon">👁</i> 9.1k</span>
+                                <span><i class="icon">⬇</i> 2.4k</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div style="margin-top: 30px; text-align: center;">
+                    <a href="#" class="btn btn-outline" style="border-color: var(--secondary-color); color: var(--secondary-color);">加载更多资源</a>
+                </div>
+            </section>
+
+            <!-- Sidebar Right -->
+            <aside class="sidebar-right">
+                <div class="widget">
+                    <h3 class="widget-title">本周热门排行</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num">1</span>
+                            <div class="rank-info">
+                                <a href="#">年度最佳作品合集</a>
+                                <div class="meta">热度 15.2k</div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">2</span>
+                            <div class="rank-info">
+                                <a href="#">高清无码：独家福利</a>
+                                <div class="meta">热度 12.8k</div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">3</span>
+                            <div class="rank-info">
+                                <a href="#">最新连载：第42话</a>
+                                <div class="meta">热度 10.5k</div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <div class="rank-info">
+                                <a href="#">经典回顾：怀旧系列</a>
+                                <div class="meta">热度 8.3k</div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <div class="rank-info">
+                                <a href="#">独家福利：会员专享</a>
+                                <div class="meta">热度 7.9k</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">快速导航</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <a href="#" class="tag">热门推荐</a>
+                        <a href="#" class="tag">最新发布</a>
+                        <a href="#" class="tag">分类浏览</a>
+                        <a href="#" class="tag">资源下载</a>
+                        <a href="#" class="tag">使用指南</a>
+                        <a href="#" class="tag">常见问题</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="container faq-section">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 40px;">常见问题解答 (FAQ)</h2>
+            
+            <div class="faq-item active">
+                <div class="faq-question">uoco福利库的资源如何获取？</div>
+                <div class="faq-answer">大部分资源需要注册会员或达到一定积分后方可下载。部分公开资源可直接访问查看，具体请参考各资源详情页面的说明。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">资源更新频率是多少？</div>
+                <div class="faq-answer">我们致力于保持高频率更新，通常每日早晨和晚间各更新一批资源，确保用户能及时获取最新内容。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">下载资源需要注意什么？</div>
+                <div class="faq-answer">请确保您的设备安全，建议使用官方提供的下载链接。下载过程中请勿进行非法传播或二次打包销售。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何加入uoco福利库的社区？</div>
+                <div class="faq-answer">点击页面右上角的“加入社区”按钮，按照提示完成注册流程即可成为会员，参与讨论和资源分享。</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于 uoco福利库</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">uoco福利库是一个专注于分享优质福利资源的平台，我们致力于为用户提供安全、便捷、高效的服务体验。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">资源分类</a></li>
+                        <li><a href="#">最新更新</a></li>
+                        <li><a href="#">联系站长</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">使用指南</a></li>
+                        <li><a href="#">会员规则</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：support@uoco.com</li>
+                        <li>QQ群：123456789</li>
+                        <li>工作时间：9:00 - 22:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 uoco福利库. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Interaction
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
